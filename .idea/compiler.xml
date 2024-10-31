@@ -9,7 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-gateway" />
         <module name="microservice-eureka" />
+        <module name="microservice-users" />
         <module name="microservice-config" />
+        <module name="microservice-posts" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +20,8 @@
       <module name="microservice-config" options="-parameters" />
       <module name="microservice-eureka" options="-parameters" />
       <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-posts" options="-parameters" />
+      <module name="microservice-users" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,6 +1,9 @@
 package com.microservice.course.service;
 
+import com.microservice.course.client.StudentClient;
+import com.microservice.course.dto.StudentDTO;
 import com.microservice.course.entities.Course;
+import com.microservice.course.http.response.StudentByCourseResponse;
 import com.microservice.course.persistence.ICourseRepository;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +13,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class CourseServiceImpl implements ICourseService{
+public class CourseServiceImpl implements ICourseService {
 
     @Autowired
     private ICourseRepository iCourseRepository;
+    @Autowired
+    private StudentClient studentClient;
 
     @Override
     public List<Course> findAll() {
@@ -28,5 +33,19 @@ public class CourseServiceImpl implements ICourseService{
     @Override
     public void save(Course course) {
         iCourseRepository.save(course);
+    }
+
+    @Override
+    public StudentByCourseResponse findStudentByCourseId(BigDecimal courseId) {
+        // Consult course
+        Course course = iCourseRepository.findById(courseId).orElse(new Course());
+
+        // Get students
+        List<StudentDTO> studentDTOList = studentClient.findAllStudentByCourse(courseId);
+        return StudentByCourseResponse.builder()
+                .courseName(course.getName())
+                .teacher(course.getTeacher())
+                .studentDTOList(studentDTOList)
+                .build();
     }
 }

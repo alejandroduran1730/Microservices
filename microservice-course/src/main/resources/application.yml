@@ -3,10 +3,10 @@ server:
 
 spring:
   application:
-    name: msvc-post
+    name: msvc-course
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/post
+    url: jdbc:postgresql://localhost:5432/coursedb
     username: postgres
     password: postgres
   jpa:

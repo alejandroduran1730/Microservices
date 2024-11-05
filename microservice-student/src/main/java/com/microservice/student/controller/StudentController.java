@@ -32,7 +32,7 @@ public class StudentController {
     }
 
     @GetMapping("/search-by-course/{courseId}")
-    public ResponseEntity<?> findByIdCourse(@PathVariable BigDecimal courseId) { // This is the endpoint the will be consumed by the Course microservice
+    public ResponseEntity<?> findByIdCourse(@PathVariable BigDecimal courseId) { // This is the endpoint that will be consumed by the Course microservice
         return ResponseEntity.ok(iStudentService.findByIdCourse(courseId));
     }
 }

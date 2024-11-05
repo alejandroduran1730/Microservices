@@ -30,4 +30,10 @@ public class CourseController {
     public ResponseEntity<?> findById(@PathVariable BigDecimal id) {
         return ResponseEntity.ok(findById(id));
     }
+
+    @GetMapping("/search-student/{courseId}")
+    public ResponseEntity<?> findStudentByCourseId(@PathVariable BigDecimal idCourse) {
+        return ResponseEntity.ok(iCourseService.findStudentByCourseId(idCourse));
+
+    }
 }

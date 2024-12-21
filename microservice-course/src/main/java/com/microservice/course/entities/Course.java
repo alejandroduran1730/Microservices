@@ -3,14 +3,13 @@ package com.microservice.course.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Data
 @Setter
 @Getter
 @Entity
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "courses")
 public class Course {
     @Id

@@ -4,11 +4,10 @@ import com.microservice.student.entities.Student;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public interface StudentRepository extends CrudRepository<Student, BigDecimal> {
+public interface StudentRepository extends CrudRepository<Student, Long> {
     @Query("SELECT s FROM Student s WHERE s.courseId = :courseId")
-    List<Student> findAllStudent(BigDecimal courseId);
+    List<Student> findAllStudent(Long courseId);
 }

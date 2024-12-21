@@ -4,8 +4,6 @@ import com.microservice.student.entities.Student;
 import com.microservice.student.persistence.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -19,7 +17,7 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public Student findById(BigDecimal id) {
+    public Student findById(Long id) {
         return studentRepository.findById(id).orElseThrow();
     }
 
@@ -29,7 +27,7 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public List<Student> findByIdCourse(BigDecimal courseId) {
+    public List<Student> findByCourseId(Long courseId) {
         return studentRepository.findAllStudent(courseId);
     }
 }

@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-
 @RestController
 @RequestMapping("/api/course")
 public class CourseController {
@@ -27,13 +25,13 @@ public class CourseController {
     }
 
     @GetMapping("/search/{id}")
-    public ResponseEntity<?> findById(@PathVariable BigDecimal id) {
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(findById(id));
     }
 
     @GetMapping("/search-student/{courseId}")
-    public ResponseEntity<?> findStudentByCourseId(@PathVariable BigDecimal idCourse) {
-        return ResponseEntity.ok(iCourseService.findStudentByCourseId(idCourse));
+    public ResponseEntity<?> findStudentsByCourseId(@PathVariable Long courseId) {
+        return ResponseEntity.ok(iCourseService.findStudentsByCourseId(courseId));
 
     }
 }

@@ -8,8 +8,6 @@ import com.microservice.course.persistence.ICourseRepository;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -26,7 +24,7 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public Course findById(BigDecimal id) {
+    public Course findById(Long id) {
         return iCourseRepository.findById(id).orElseThrow();
     }
 
@@ -36,12 +34,12 @@ public class CourseServiceImpl implements ICourseService {
     }
 
     @Override
-    public StudentByCourseResponse findStudentByCourseId(BigDecimal courseId) {
+    public StudentByCourseResponse findStudentsByCourseId(Long courseId) {
         // Consult course
         Course course = iCourseRepository.findById(courseId).orElse(new Course());
 
         // Get students
-        List<StudentDTO> studentDTOList = studentClient.findAllStudentByCourse(courseId);
+        List<StudentDTO> studentDTOList = studentClient.findAllStudentsByCourse(courseId);
         return StudentByCourseResponse.builder()
                 .courseName(course.getName())
                 .teacher(course.getTeacher())

@@ -30,8 +30,5 @@ To run the project, follow the steps below:
 - The application will be available at (http://localhost:8080)
 
 ## Notes:
+- Change the datasource password for the **msvc-student.yml** and **msvc-course.yml** according to your database management systems.
 - In the API Gateway: (http://localhost:8761/eureka) you will be able to view a list of the registered microservices.
-- Use Postman to send HTTP request to test the endpoints, such as:
-- (http://localhost:8080/api/course/all)
-- (http://localhost:8080/api/course/search-student/1)
-- (http://localhost:8080/api/student/search-by-course/1)

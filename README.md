@@ -13,7 +13,6 @@ Configuration is centralized and managed through Config Server, and Eureka is us
 - Java
 - PostgreSQL
 - MySQL
-- IntelliJ IDEA Community Edition
 
 # Requirements
 - JDK 21+

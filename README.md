@@ -8,7 +8,7 @@ Configuration is centralized and managed through Config Server, and Eureka is us
 # Technologies
 - Spring Boot
 - Maven
-- Confign Server
+- Config Server
 - Eureka
 - Java
 - PostgreSQL
